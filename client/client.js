@@ -6,7 +6,17 @@ window.__ModuleLoader__.load({
     const NS = 'settings.opcPluginMarket';
     const zh = { tab: '插件市场' };
     const en = { tab: 'Plugin Market' };
-    const inject = ['slots', 'locale'];
+    const inject = ['slots', 'locale', 'theme'];
+
+    function createThemeStore(theme) {
+      let snapshot = theme.getTheme();
+      const listeners = new Set();
+      return {
+        getSnapshot: () => snapshot,
+        subscribe: (listener) => { listeners.add(listener); return () => listeners.delete(listener); },
+        sync: (next) => { snapshot = next; listeners.forEach((listener) => listener()); },
+      };
+    }
 
     function replaceMarketNavIcon(label) {
       const button = [...document.querySelectorAll('button')].find((candidate) =>
@@ -42,6 +52,9 @@ window.__ModuleLoader__.load({
     function apply(ctx) {
       ctx.effect(() => ctx.locale.register(NS, { zh, en }), 'dsh-plugin-market: dictionaries');
       const t = ctx.locale.bind(NS);
+      const theme = ctx.get('theme');
+      const themeStore = createThemeStore(theme);
+      ctx.on('theme/change', (snapshot) => themeStore.sync(snapshot));
       ctx.effect(() => {
         const refresh = () => replaceMarketNavIcon(t('tab'));
         const observer = new MutationObserver(refresh);
@@ -52,10 +65,12 @@ window.__ModuleLoader__.load({
       function MarketSection() {
         const snapshot = React.useSyncExternalStore(ctx.locale.subscribe.bind(ctx.locale), ctx.locale.getSnapshot.bind(ctx.locale));
         const language = snapshot.active === 'en' ? 'en' : 'zh';
+        const themeSnapshot = React.useSyncExternalStore(themeStore.subscribe, themeStore.getSnapshot);
+        const colorScheme = themeSnapshot.active.colorScheme;
         return jsx('iframe', {
-          key: language,
+          key: `${language}-${colorScheme}`,
           title: language === 'en' ? 'Local plugin manager' : '本地插件管理',
-          src: `http://127.0.0.1:39183/?embed=1&lang=${language}`,
+          src: `http://127.0.0.1:39183/?embed=1&lang=${language}&theme=${colorScheme}`,
           style: { border: 0, display: 'block', minHeight: '760px', width: '100%', background: 'transparent' },
         });
       }

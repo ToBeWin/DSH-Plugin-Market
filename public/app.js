@@ -19,6 +19,7 @@ const translations = {
 
 const query = new URLSearchParams(window.location.search);
 const embedded = query.get('embed') === '1';
+const theme = query.get('theme') === 'dark' ? 'dark' : 'light';
 let language = query.get('lang') === 'en' || (!query.has('lang') && localStorage.getItem('dsh-plugin-market-language') === 'en') ? 'en' : 'zh';
 const list = document.querySelector('#plugin-list');
 const locationLabel = document.querySelector('#location');
@@ -38,6 +39,7 @@ const t = (key) => translations[language][key];
 
 function applyLanguage() {
   document.documentElement.lang = language === 'en' ? 'en' : 'zh-CN';
+  document.documentElement.dataset.dshTheme = theme;
   document.body.classList.toggle('embedded', embedded);
   document.title = language === 'en' ? 'DSH Plugin Market' : 'DSH 插件中心';
   const staticCopy = {
