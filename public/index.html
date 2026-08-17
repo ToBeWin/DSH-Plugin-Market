@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DSH Plugin Market</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand"><span class="brand-mark" aria-hidden="true">◒</span><span>DSH</span><span class="muted">Plugin Market</span></div>
+        <button class="local-indicator" id="language-button" title="Switch language"><i></i><span id="local-label">仅本机</span><b>中 / EN</b></button>
+      </header>
+      <section class="content" aria-labelledby="page-title">
+        <div class="heading-row">
+          <div>
+            <h1 id="page-title" data-i18n="title">插件中心</h1>
+            <p data-i18n="subtitle">管理本机已安装的 DeepSeek Harness 插件</p>
+          </div>
+        </div>
+        <div class="toolbar">
+          <label><span data-i18n="profile">Profile</span> <select id="profile-select" aria-label="当前 Profile"><option>web</option></select></label>
+          <button class="button icon" id="refresh-button" title="刷新插件列表" aria-label="刷新插件列表">↻</button>
+          <button class="button install-button" id="install-button" data-i18n="addPlugin">＋ 安装插件</button>
+          <span class="location" id="location"></span>
+        </div>
+        <aside class="notice"><span aria-hidden="true">△</span><span data-i18n="notice">启用、停用、更新或卸载会在重启 DeepSeek Harness 后生效。</span></aside>
+        <section class="catalog" aria-live="polite">
+          <div class="catalog-header"><span data-i18n="plugin">插件</span><span data-i18n="version">版本</span><span data-i18n="source">来源</span><span data-i18n="status">状态</span><span data-i18n="actions">操作</span></div>
+          <div id="plugin-list" class="plugin-list"><p class="loading" data-i18n="loading">正在读取本地 profile…</p></div>
+        </section>
+        <section id="activity" class="activity" hidden>
+          <div><strong data-i18n="recent">最近操作</strong><button class="text-button" id="close-activity" data-i18n="collapse">收起</button></div>
+          <pre id="activity-output"></pre>
+        </section>
+      </section>
+    </main>
+    <dialog id="install-dialog">
+      <form method="dialog" id="install-form">
+        <div class="dialog-title"><h2 data-i18n="installTitle">安装插件</h2><button class="close" id="close-install-dialog" type="button" aria-label="关闭">×</button></div>
+        <p data-i18n="installHelp">输入 npm 包名、Git 地址或本地插件目录。安装仍由官方 <code>dsh plugin</code> 执行。</p>
+        <label class="field"><span data-i18n="pluginSource">插件来源</span><input id="plugin-spec" name="spec" placeholder="@scope/dsh-plugin 或 /path/to/plugin" autocomplete="off" required></label>
+        <div class="dialog-actions"><button class="button" id="cancel-install" type="button" data-i18n="cancel">取消</button><button class="button primary" value="default" id="confirm-install" data-i18n="install">安装</button></div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

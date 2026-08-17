@@ -1,0 +1,3 @@
+- insert:
+    - id: tobewin-dsh-plugin-market
+      name: '@tobewin/dsh-plugin-market'
