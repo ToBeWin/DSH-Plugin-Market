@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/images/tobewin-dsh-suite.png" alt="ToBeWin DeepSeek Harness plugin suite" width="100%">
-</p>
-
 <h1 align="center">DSH Plugin Market</h1>
 
 <p align="center">
@@ -41,7 +37,44 @@ Each project owns one focused capability and remains independently installable. 
 | [**Developer Workbench**](https://github.com/ToBeWin/DSH-Developer-Workbench) | Project files, embedded web preview, and an interactive PTY terminal | `@tobewin/dsh-developer-workbench` |
 | [**DSH Desktop**](https://github.com/ToBeWin/DSH-Desktop) | A decoupled macOS and Windows desktop host | GitHub Releases |
 
-> Want to share the project? The full-resolution social card is available as [PNG](docs/images/tobewin-dsh-suite.png) and [SVG](docs/images/tobewin-dsh-suite.svg).
+## The suite in action / 实际运行效果
+
+Every image below is a real DeepSeek Harness screen captured from the corresponding project. No conceptual dashboard or fictional interface is shown.
+
+以下全部来自相应项目的真实 DeepSeek Harness 运行界面，不使用概念控制台或虚构产品画面。
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/ToBeWin/DSH-Temporary-Chat"><img src="docs/images/temporary-chat.png" alt="Temporary Chat running without a workspace"></a><br>
+      <strong>Temporary Chat</strong> — start without choosing a workspace.<br>
+      <strong>临时会话</strong> —— 无需先选择工作区。
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/ToBeWin/DSH-Skin-Studio"><img src="docs/images/skin-studio-applied.png" alt="A custom Skin Studio theme applied across Harness"></a><br>
+      <strong>Skin Studio</strong> — wallpapers, palettes, translucency, and framing.<br>
+      <strong>皮肤工作室</strong> —— 背景图、配色、透明度与裁剪。
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <a href="https://github.com/ToBeWin/DSH-Pet-Companion"><img src="docs/images/pet-companion-applied.png" alt="A Pet Companion greeting the user in Harness"></a><br>
+      <strong>Pet Companion</strong> — animated local characters with bilingual greetings.<br>
+      <strong>萌宠伴侣</strong> —— 会使用中英文打招呼的本地动态角色。
+    </td>
+    <td width="50%" valign="top">
+      <a href="https://github.com/ToBeWin/DSH-Developer-Workbench"><img src="docs/images/developer-workbench.png" alt="Developer Workbench with a live preview"></a><br>
+      <strong>Developer Workbench</strong> — files, live preview, and an interactive terminal.<br>
+      <strong>开发工作台</strong> —— 文件、实时预览与交互终端。
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <a href="https://github.com/ToBeWin/DSH-Desktop"><img src="docs/images/dsh-desktop.png" alt="DeepSeek Harness running inside DSH Desktop" width="94%"></a><br>
+  <strong>DSH Desktop</strong> — the original Harness Web UI in a decoupled macOS and Windows desktop host.<br>
+  独立封装原版 Harness Web UI 的 macOS 与 Windows 桌面端。
+</p>
 
 ## What it does
 
