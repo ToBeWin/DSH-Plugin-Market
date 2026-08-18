@@ -1,12 +1,47 @@
-# DSH Plugin Market
+<p align="center">
+  <img src="docs/images/tobewin-dsh-suite.png" alt="ToBeWin DeepSeek Harness plugin suite" width="100%">
+</p>
 
-[中文说明](#中文说明) · [MIT License](LICENSE)
+<h1 align="center">DSH Plugin Market</h1>
 
-`@tobewin/dsh-plugin-market` is a local-first management plugin for [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness). It adds a **Plugin Market** page to Harness Settings for inspecting and maintaining the plugins installed in the current profile.
+<p align="center">
+  A local-first plugin manager—and the front door to the ToBeWin ecosystem for DeepSeek Harness.
+</p>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@tobewin/dsh-plugin-market"><img src="https://img.shields.io/npm/v/@tobewin/dsh-plugin-market?color=2563eb&label=npm" alt="npm version"></a>
+  <a href="https://github.com/ToBeWin/DSH-Plugin-Market/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-111827" alt="MIT license"></a>
+  <img src="https://img.shields.io/badge/data-local--only-0f766e" alt="Local-only data">
+  <img src="https://img.shields.io/badge/language-English%20%7C%20%E4%B8%AD%E6%96%87-7c3aed" alt="English and Chinese">
+</p>
+
+<p align="center">
+  <a href="#quick-start">Quick start</a> ·
+  <a href="#the-tobewin-dsh-suite">Plugin suite</a> ·
+  <a href="#中文说明">中文说明</a> ·
+  <a href="https://github.com/ToBeWin">ToBeWin on GitHub</a>
+</p>
+
+`@tobewin/dsh-plugin-market` adds a native-looking **Plugin Market** page to [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness), where you can inspect and maintain the plugins installed in the active profile.
 
 It is deliberately **not** a hosted marketplace: no catalog service, user account, analytics, telemetry, or remote database is involved. Everything is read from and changed on the local DSH profile through the official `dsh plugin` command.
 
 > This is an independent community project by [ToBeWin](https://github.com/ToBeWin). It is not affiliated with or endorsed by DeepSeek.
+
+## The ToBeWin DSH suite
+
+Each project owns one focused capability and remains independently installable. None of them forks or bundles the DeepSeek Harness source tree.
+
+| Project | What it adds | Package |
+| --- | --- | --- |
+| **Plugin Market** | Install, update, enable, disable, and remove local plugins | `@tobewin/dsh-plugin-market` |
+| [**Temporary Chat**](https://github.com/ToBeWin/DSH-Temporary-Chat) | Start a native conversation without choosing a workspace | `@tobewin/dsh-temporary-chat` |
+| [**Skin Studio**](https://github.com/ToBeWin/DSH-Skin-Studio) | Built-in skins, custom colors, wallpapers, and visual cropping | `@tobewin/dsh-skin-studio` |
+| [**Pet Companion**](https://github.com/ToBeWin/DSH-Pet-Companion) | Sixteen animated, local-only companions with bilingual greetings | `@tobewin/dsh-pet-companion` |
+| [**Developer Workbench**](https://github.com/ToBeWin/DSH-Developer-Workbench) | Project files, embedded web preview, and an interactive PTY terminal | `@tobewin/dsh-developer-workbench` |
+| [**DSH Desktop**](https://github.com/ToBeWin/DSH-Desktop) | A decoupled macOS and Windows desktop host | GitHub Releases |
+
+> Want to share the project? The full-resolution social card is available as [PNG](docs/images/tobewin-dsh-suite.png) and [SVG](docs/images/tobewin-dsh-suite.svg).
 
 ## What it does
 
@@ -17,9 +52,7 @@ It is deliberately **not** a hosted marketplace: no catalog service, user accoun
 - Runs its visual dashboard on `127.0.0.1` only; it never exposes a server to the LAN or Internet.
 - Follows the English/Chinese language selected in Harness Settings.
 
-## Install
-
-### From npm
+## Quick start
 
 ```bash
 dsh plugin --profile web add @tobewin/dsh-plugin-market
